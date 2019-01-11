@@ -3,9 +3,10 @@ class Logger
    def initialize
      @f = File.open "log.txt", "a"
    end
-   #class method
-   def self.say_something
-     puts "Ha-Ha!"
+
+   @@x = Logger.new
+   def self.instance
+     return @@x
    end
 
    #instance method
@@ -13,11 +14,6 @@ class Logger
       @f.puts logLine
    end
 
+   private_class_method :new
+
 end #class
-
-#logger = Logger.new
-
-Logger.say_something
-
-logger = Logger.new
-logger.log_something "abra kadabra"
