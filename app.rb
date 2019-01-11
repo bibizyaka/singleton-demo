@@ -1,19 +1,5 @@
-class Logger
+require "./logger.rb"
 
-   def initialize
-     @f = File.open "log.txt", "a"
-   end
+Logger.instance.log_something 'bla bla!!'
 
-   @@x = Logger.new
-   def self.instance
-     return @@x
-   end
-
-   #instance method
-   def log_something logLine
-      @f.puts logLine
-   end
-
-   private_class_method :new
-
-end #class
+#logger = Logger.new 
